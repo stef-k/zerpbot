@@ -1,5 +1,6 @@
 const axios = require('axios')
 const humanize = require('humanize')
+const moment = require('moment-timezone')
 
 /**
  * Fetches XRP price and some stats from various services
@@ -13,6 +14,7 @@ class Price {
    */
   constructor() {
     this.axios = axios
+    let updatedAt = this._dateTimeStamp()
     this.price = {
       bitstampLast: null,
       bitstampHigh: null,
@@ -26,7 +28,7 @@ class Price {
       coinmarketcapBtc: null,
       coinmarketcapVolume: null,
       coinmarketcapSupply: null,
-      updated: humanize.date('H:i:s P') + ' GMT, ' + humanize.date('M-d-Y')
+      updated: '[London ' + updatedAt.london.format('MMM-DD-YYYY, HH:mm:ss Zz') + '] [New York ' + updatedAt.newYork.format('MMM-DD-YYYY, HH:mm:ss Zz') + ']\n    [Tokyo & Seoul ' + updatedAt.tokyo.format('MMM-DD-YYYY, HH:mm:ss Zz') + '] [Hong Kong ' + updatedAt.hongKong.format('MMM-DD-YYYY, HH:mm:ss Zz]')
     }
     this.bitstamp = 'https://www.bitstamp.net/api/v2/ticker/xrpusd/'
     this.coinmarketcap = 'https://api.coinmarketcap.com/v1/ticker/ripple/'
@@ -36,8 +38,22 @@ class Price {
     }, 60500)
   }
 
+  _dateTimeStamp() {
+    let london = moment.tz(Date.now(), 'Europe/London')
+    let newYork = london.clone().tz('America/New_York')
+    let tokyo = london.clone().tz('Asia/Tokyo')
+    let hongKong = london.clone().tz('Asia/Hong_Kong')
+    return {
+      london: london,
+      newYork: newYork,
+      tokyo: tokyo,
+      hongKong: hongKong
+    }
+  }
+
   _fetchPrice() {
     axios.get(this.bitstamp).then((ticker) => {
+      let updatedAt = this._dateTimeStamp()
       this.price.bitstampLast = ticker.data.last
       this.price.bitstampHigh = ticker.data.high
       this.price.bitstampLow = ticker.data.low
@@ -45,7 +61,7 @@ class Price {
       this.price.bitstampAsk = ticker.data.ask
       this.price.bitstampOpen = ticker.data.open
       this.price.bitstampVolume = ticker.data.volume
-      this.price.updated = humanize.date('H:i:s P') + ' GMT, ' + humanize.date('M-d-Y')
+      this.price.updated = '[London ' + updatedAt.london.format('MMM-DD-YYYY, HH:mm:ss Zz') + '] [New York ' + updatedAt.newYork.format('MMM-DD-YYYY, HH:mm:ss Zz') + ']\n    [Tokyo & Seoul ' + updatedAt.tokyo.format('MMM-DD-YYYY, HH:mm:ss Zz') + '] [Hong Kong ' + updatedAt.hongKong.format('MMM-DD-YYYY, HH:mm:ss Zz]')
     }).catch((e) => {
       console.log('Could not fetch the price from Bitstamp', e)
     })
@@ -71,7 +87,7 @@ class Price {
    * @memberof PriceBot
    */
   toString() {
-    return `    Updated: ${this.price.updated}
+    return `    Updated at:\n    ${this.price.updated}
     --------------------------------------------
     Bitstamp XRP/USD:\t\t$${this.price.bitstampLast}
     Bistamp High:\t\t\t$${this.price.bitstampHigh}

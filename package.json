@@ -13,6 +13,7 @@
     "axios": "^0.17.1",
     "dotenv": "^4.0.0",
     "humanize": "0.0.9",
+    "moment-timezone": "^0.5.14",
     "snoostorm": "0.0.5",
     "snoowrap": "^1.15.1"
   }
