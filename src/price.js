@@ -79,12 +79,12 @@ class Price {
     Bistamp Bid:\t\t\t$${ this.price.bitstampBid}
     Bistamp Ask:\t\t\t$${ this.price.bitstampAsk}
     Bistamp Open:\t\t\t$${ this.price.bitstampOpen}
-    Bistamp 24h Volume:\t\t\t${ this._toHumanReadable(this.price.bitstampVolume) } XRP
+    Bistamp 24h Volume:\t\t${ this._toHumanReadable(this.price.bitstampVolume) } XRP
     --------------------------------------------
     Coinmarketcap XRP/USD:\t\t$${this.price.coinmarketcapUsd}
     Coinmarketcap XRP/BTC:\t\t${this.price.coinmarketcapBtc} XBT
     Coinmarketcap Rank:\t\t\t${this.price.coinmarketcapRank}
-    Coinmarketcap 24h Volume:\t\t${this._toHumanReadable(this.price.coinmarketcapVolume)} XRP
+    Coinmarketcap 24h Volume:\t${this._toHumanReadable(this.price.coinmarketcapVolume)} XRP
     Coinmarketcap Supply:\t\t${ this._toHumanReadable(this.price.coinmarketcapSupply)} XRP avail.`
   }
 }

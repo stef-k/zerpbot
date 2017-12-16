@@ -14,7 +14,7 @@ Summon the bot with the `+zerpbot` keyword followed by a command.
 
   * **howto** - responds with links containg exchanges URLs and visual guides how to register and purchanse XRP
 
-  * **price** - responds with price data from Bitstamp and Coinmarketcap
+  * **price** - responds with price data from Bitstamp and Coinmarketcap. Updates every 65 seconds.
 
 ## Examples
 

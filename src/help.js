@@ -68,7 +68,7 @@ For more check [this page](https://ripple.com/xrp/buy-xrp/) on **Ripple's offici
   --------------------------
   Available commands (copy paste the bold part):
 
-  **+zerpbot price**  returns the price from Bitstamp and Coinmarketcap along with some extra info.
+  **+zerpbot price**  returns the price from Bitstamp and Coinmarketcap along with some extra info. Updates every 65 seconds.
 
   **+zerpbot howto**  returns useful links with guides where and how to buy XRP.
 
