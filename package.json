@@ -1,14 +1,18 @@
 {
   "name": "zerpbot",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A helper bot for the r/Ripple subreddit",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stef-k/zerpbot"
+  },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Stef Kariotidis",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.17.1",
     "dotenv": "^4.0.0",
