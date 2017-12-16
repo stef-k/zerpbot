@@ -28,7 +28,9 @@ class Price {
       coinmarketcapBtc: null,
       coinmarketcapVolume: null,
       coinmarketcapSupply: null,
-      updated: '[London ' + updatedAt.london.format('MMM-DD-YYYY, HH:mm:ss Zz') + '] [New York ' + updatedAt.newYork.format('MMM-DD-YYYY, HH:mm:ss Zz') + ']\n    [Tokyo & Seoul ' + updatedAt.tokyo.format('MMM-DD-YYYY, HH:mm:ss Zz') + '] [Hong Kong ' + updatedAt.hongKong.format('MMM-DD-YYYY, HH:mm:ss Zz]')
+      updated: `[**London** ${updatedAt.london.format('MMM - DD - YYYY, HH: mm: ss Zz')}] [**New York** ${updatedAt.newYork.format('MMM - DD - YYYY, HH: mm: ss Zz')}]
+
+[**Tokyo & Seoul** ${updatedAt.tokyo.format('MMM - DD - YYYY, HH: mm: ss Zz')}] [**Hong Kong** ${updatedAt.hongKong.format('MMM - DD - YYYY, HH: mm: ss Zz')}]`
     }
     this.bitstamp = 'https://www.bitstamp.net/api/v2/ticker/xrpusd/'
     this.coinmarketcap = 'https://api.coinmarketcap.com/v1/ticker/ripple/'
@@ -61,7 +63,9 @@ class Price {
       this.price.bitstampAsk = ticker.data.ask
       this.price.bitstampOpen = ticker.data.open
       this.price.bitstampVolume = ticker.data.volume
-      this.price.updated = '[London ' + updatedAt.london.format('MMM-DD-YYYY, HH:mm:ss Zz') + '] [New York ' + updatedAt.newYork.format('MMM-DD-YYYY, HH:mm:ss Zz') + ']\n    [Tokyo & Seoul ' + updatedAt.tokyo.format('MMM-DD-YYYY, HH:mm:ss Zz') + '] [Hong Kong ' + updatedAt.hongKong.format('MMM-DD-YYYY, HH:mm:ss Zz]')
+      this.price.updated = `[**London** ${updatedAt.london.format('MMM - DD - YYYY, HH: mm: ss Zz')}] [**New York** ${updatedAt.newYork.format('MMM - DD - YYYY, HH: mm: ss Zz')}]
+
+[**Tokyo & Seoul** ${updatedAt.tokyo.format('MMM - DD - YYYY, HH: mm: ss Zz')}] [**Hong Kong** ${updatedAt.hongKong.format('MMM - DD - YYYY, HH: mm: ss Zz')}]`
     }).catch((e) => {
       console.log('Could not fetch the price from Bitstamp', e)
     })
@@ -87,8 +91,10 @@ class Price {
    * @memberof PriceBot
    */
   toString() {
-    return `    Updated at:\n    ${this.price.updated}
-    --------------------------------------------
+    return `**Price updated at**:
+
+${this.price.updated}
+
     Bitstamp XRP/USD:\t\t$${this.price.bitstampLast}
     Bistamp High:\t\t\t$${this.price.bitstampHigh}
     Bistamp Low:\t\t\t$${ this.price.bitstampLow}
@@ -96,7 +102,9 @@ class Price {
     Bistamp Ask:\t\t\t$${ this.price.bitstampAsk}
     Bistamp Open:\t\t\t$${ this.price.bitstampOpen}
     Bistamp 24h Volume:\t\t${ this._toHumanReadable(this.price.bitstampVolume) } XRP
-    --------------------------------------------
+
+--------------------------------------------
+
     Coinmarketcap XRP/USD:\t\t$${this.price.coinmarketcapUsd}
     Coinmarketcap XRP/BTC:\t\t${this.price.coinmarketcapBtc} XBT
     Coinmarketcap Rank:\t\t\t${this.price.coinmarketcapRank}
