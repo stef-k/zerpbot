@@ -1,0 +1,19 @@
+{
+  "name": "zerpbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "dotenv": "^4.0.0",
+    "humanize": "0.0.9",
+    "snoostorm": "0.0.5",
+    "snoowrap": "^1.15.1"
+  }
+}
