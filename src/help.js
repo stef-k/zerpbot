@@ -53,7 +53,6 @@ For more check [this page](https://ripple.com/xrp/buy-xrp/) on **Ripple's offici
   * [XPR: Cost Model PDF read](https://ripple.com/files/xrp_cost_model_paper.pdf)
   * [Ripple's vision PDF read](https://ripple.com/files/ripple_vision.pdf)
   * [XRP Charts](https://xrpcharts.ripple.com/#/)
-  * [XRP Market Charts](https://xrpcharts.ripple.com/#/xrp-markets)
 
   -------------------------------------------------------------------------
   **Additional Info**
