@@ -28,9 +28,9 @@ class Price {
       coinmarketcapBtc: null,
       coinmarketcapVolume: null,
       coinmarketcapSupply: null,
-      updated: `[**London** ${updatedAt.london.format('MMM - DD - YYYY, HH: mm: ss Zz')}] [**New York** ${updatedAt.newYork.format('MMM - DD - YYYY, HH: mm: ss Zz')}]
+      updated: `[**London** ${updatedAt.london.format('MMM-DD-YYYY, HH:mm:ss Zz')}] [**New York** ${updatedAt.newYork.format('MMM-DD-YYYY, HH:mm:ss Zz')}]
 
-[**Tokyo & Seoul** ${updatedAt.tokyo.format('MMM - DD - YYYY, HH: mm: ss Zz')}] [**Hong Kong** ${updatedAt.hongKong.format('MMM - DD - YYYY, HH: mm: ss Zz')}]`
+[**Tokyo & Seoul** ${updatedAt.tokyo.format('MMM-DD-YYYY, HH:mm:ss Zz')}] [**Hong Kong** ${updatedAt.hongKong.format('MMM-DD-YYYY, HH:mm:ss Zz')}]`
     }
     this.bitstamp = 'https://www.bitstamp.net/api/v2/ticker/xrpusd/'
     this.coinmarketcap = 'https://api.coinmarketcap.com/v1/ticker/ripple/'
@@ -63,9 +63,9 @@ class Price {
       this.price.bitstampAsk = ticker.data.ask
       this.price.bitstampOpen = ticker.data.open
       this.price.bitstampVolume = ticker.data.volume
-      this.price.updated = `[**London** ${updatedAt.london.format('MMM - DD - YYYY, HH: mm: ss Zz')}] [**New York** ${updatedAt.newYork.format('MMM - DD - YYYY, HH: mm: ss Zz')}]
+      this.price.updated = `[**London** ${updatedAt.london.format('MMM-DD-YYYY, HH:mm:ss Zz')}] [**New York** ${updatedAt.newYork.format('MMM-DD-YYYY, HH:mm:ss Zz')}]
 
-[**Tokyo & Seoul** ${updatedAt.tokyo.format('MMM - DD - YYYY, HH: mm: ss Zz')}] [**Hong Kong** ${updatedAt.hongKong.format('MMM - DD - YYYY, HH: mm: ss Zz')}]`
+[**Tokyo & Seoul** ${updatedAt.tokyo.format('MMM-DD-YYYY, HH:mm:ss Zz')}] [**Hong Kong** ${updatedAt.hongKong.format('MMM-DD-YYYY, HH:mm:ss Zz')}]`
     }).catch((e) => {
       console.log('Could not fetch the price from Bitstamp', e)
     })
