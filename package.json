@@ -4,7 +4,7 @@
   "description": "A helper bot for the r/Ripple subreddit",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --exit"
   },
   "repository": {
     "type": "git",
@@ -16,9 +16,13 @@
   "dependencies": {
     "axios": "^0.17.1",
     "dotenv": "^4.0.0",
+    "expect": "^21.2.1",
     "humanize": "0.0.9",
     "moment-timezone": "^0.5.14",
     "snoostorm": "0.0.5",
     "snoowrap": "^1.15.1"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
   }
 }
