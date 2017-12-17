@@ -53,8 +53,9 @@ class Price {
     }
   }
 
-  _fetchPrice() {
-    axios.get(this.bitstamp).then((ticker) => {
+  async _fetchPrice() {
+    try {
+      let ticker = await axios.get(this.bitstamp)
       let updatedAt = this._dateTimeStamp()
       this.price.bitstampLast = ticker.data.last
       this.price.bitstampHigh = ticker.data.high
@@ -66,18 +67,20 @@ class Price {
       this.price.updated = `[**London** ${updatedAt.london.format('MMM-DD-YYYY, HH:mm:ss Zz')}] [**New York** ${updatedAt.newYork.format('MMM-DD-YYYY, HH:mm:ss Zz')}]
 
 [**Tokyo & Seoul** ${updatedAt.tokyo.format('MMM-DD-YYYY, HH:mm:ss Zz')}] [**Hong Kong** ${updatedAt.hongKong.format('MMM-DD-YYYY, HH:mm:ss Zz')}]`
-    }).catch((e) => {
-      console.log('Could not fetch the price from Bitstamp', e)
-    })
-    axios.get(this.coinmarketcap).then((ticker) => {
+    } catch (error) {
+      console.log('Could not fetch the price from Bitstamp', error)
+    }
+
+    try {
+      let ticker = await axios.get(this.coinmarketcap)
       this.price.coinmarketcapUsd = ticker.data[0].price_usd
       this.price.coinmarketcapBtc = ticker.data[0].price_btc
       this.price.coinmarketcapRank = ticker.data[0].rank
       this.price.coinmarketcapVolume = ticker.data[0]['24h_volume_usd']
       this.price.coinmarketcapSupply = ticker.data[0].available_supply
-    }).catch((e) => {
-      console.log('Could not fetch the price from Coinmarketcap', e)
-    })
+    } catch (error) {
+      console.log('Could not fetch the price from Coinmarketcap', error)
+    }
   }
 
   _toHumanReadable(price) {
